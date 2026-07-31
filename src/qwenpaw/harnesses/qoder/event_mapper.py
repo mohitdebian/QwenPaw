@@ -14,11 +14,18 @@ from qoder_agent_sdk import (
     SystemMessage,
     TextBlock,
     ThinkingBlock,
-    ToolProgressMessage,
     ToolResultBlock,
     ToolUseBlock,
     UserMessage,
 )
+
+try:
+    from qoder_agent_sdk import ToolProgressMessage
+except ImportError:
+
+    class ToolProgressMessage:  # type: ignore[no-redef]
+        """Dummy class when SDK does not provide ToolProgressMessage."""
+
 
 from ..events import (
     HarnessEvent,

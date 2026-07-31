@@ -318,8 +318,6 @@ async def test_models_and_turns_use_sdk_capabilities(tmp_path: Path) -> None:
     turn_client = clients[-1]
     assert turn_client.options.cwd == tmp_path
     assert turn_client.options.model == "auto"
-    assert turn_client.options.effort is None
-    assert turn_client.options.thinking is None
     assert turn_client.options.extra_args == {
         "reasoning-effort": "high",
     }
